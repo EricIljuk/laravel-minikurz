@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomepageController extends Controller
+{
+    //pokud funkce vyúpisuje nejakou sablonu, tak se vetsinou nazyva index
+    function index() {
+        $polePromennych = array();
+        $polePromennych["datum"] = date("d-m-Y");
+        $polePromennych["stavNavstevnosti"] = rand(0, 100);
+        $polePromennych["jeOtevreno"] = false;
+        $polePromennych["casyKrmeni"] = array("8:00", "12:20", "14:00", "16:30");
+
+        return view("homepage", $polePromennych);
+    }
+}
+
